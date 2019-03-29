@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        code, pre {
+            font-family: monospace;
+        }
+        h1 code,
+        h2 code,
+        h3 code,
+        h4 code,
+        h5 code,
+        h6 code {
+            font-size: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Learning Linux</h1>
+<h2>Setting up a Linux Virtual machine (03/25)</h2>
+<ul>
+<li>Download Ubuntu from https://www.ubuntu.com/download/desktop</li>
+<li>Download Virtual box from https://www.virtualbox.org/wiki/Downloads<ul>
+<li>LVM - Logical Volume Management - Allows to increase or decrease volumes later</li>
+</ul>
+</li>
+</ul>
+<h2>Shortcut Keys</h2>
+<ul>
+<li>Ctrl+ A - go beginning of the command</li>
+<li>Ctrl+ E - go to the end of the command line</li>
+<li>Ctrl+ P - previous</li>
+<li>Cmd+ R - search the previous command</li>
+</ul>
+<h2>Linux Basics</h2>
+<ul>
+<li>pwd - print working directory</li>
+<li>ls - list files and folders in the folder</li>
+<li>ln - link - No 2 files but pointer to the file</li>
+<li>nano - edit a file</li>
+<li>cat - shows the file</li>
+<li>head - shows tyhe first XX lines</li>
+<li>tail - shows the last XX lines</li>
+<li>head tail -f options - Keeps the file open</li>
+<li>shutdown - r/h now - shutdown restart/halt now</li>
+<li>poweroff - shuts down the instance</li>
+<li>/ - First slash is the root directory</li>
+<li>clear - clear the terminal</li>
+<li>cd to go up or down</li>
+<li>cd /- goes to the root directory
+ubuntu@ip-172-31-82-245:/$ - Name@machinename: Dir</li>
+</ul>
+<h2>Basics 2 (03/26)</h2>
+<p>https://www.youtube.com/watch?v=Lbh8Bh_SEzU&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK&amp;index=4</p>
+<ul>
+<li>ls -a - shows hidden files</li>
+<li>$ is the bash for most of the linux versions</li>
+<li>cd ~ - short for the home</li>
+<li>touch filename - creates a file</li>
+<li>cat filename - prints the file</li>
+<li>mkdir dirname - creates a directory</li>
+<li>mv filename target - Move file to a folder</li>
+<li>rm filename - removes the file</li>
+<li>rmdir foldername - removes the folder</li>
+<li>rm -r - Removes recursively</li>
+</ul>
+<h3>Basics continued</h3>
+<p>https://www.youtube.com/watch?v=ZeZVkA1zjWg&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK&amp;index=5</p>
+<ul>
+<li>Anything after # will not be evaluated</li>
+<li>nano file - opens file in editor</li>
+<li>ln -s file linkfile - creates link of file</li>
+</ul>
+<h3>More commands(03/27)</h3>
+<p>https://www.youtube.com/watch?v=EbOEqycEFeM&amp;index=6&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</p>
+<ul>
+<li>w - gives info on who all have logged in</li>
+<li>who - same as who but lesser information</li>
+<li>top - gives the details of the processes running</li>
+<li>htop - gives the same as htop but better</li>
+<li>netstat - gives the network details<ul>
+<li>netstat -tupln - gives the needed details</li>
+<li>sudo netstat -tupln gives more details as running on root</li>
+</ul>
+</li>
+</ul>
+<h3>Review Text editors</h3>
+<p>https://www.youtube.com/watch?v=fEGSA68uAR4&amp;index=7&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</p>
+<ul>
+<li>cp file1 file2 - copy file2 to file2</li>
+<li>man - help</li>
+<li>cat file1 file2 - concatenates file1 and file2</li>
+</ul>
+<h2>Shell Features 03/28</h2>
+<p>https://www.youtube.com/watch?v=-Z5tCri-QlI&amp;index=8&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK</p>
+<h3>Redirection &lt;, &gt;, &gt;&gt;, 2&gt;</h3>
+<ul>
+<li>echo &ldquo;STDIN &ndash;&gt;0&rdquo;</li>
+<li>echo &ldquo;STDOUT &ndash;&gt;1&rdquo; dont have to specify as well. Redirects to the file</li>
+<li>echo &ldquo;STDERR &ndash;&gt;2&rdquo;</li>
+<li>command &lt; msg.txt - passed msg.txt to command</li>
+<li>(&gt;&gt;) concatenates </li>
+</ul>
+<h3>Pipes |</h3>
+<ul>
+<li>ps aus | less - displays but less makes it shows only one screen</li>
+<li>(#Q) - quits from less</li>
+</ul>
+<p>https://www.youtube.com/watch?v=nLa6jAbULe8&amp;list=PLtK75qxsQaMLZSo7KL-PmiRarU7hrpnwK&amp;index=9</p>
+<h3>Logical &amp;&amp;, cut, sort, uniq, grep</h3>
+<ul>
+<li>prog1 &amp;&amp; prog2 - It run prog2 only when prog1 is success</li>
+<li>cat file.txt | cut -d: -f2 - Cuts the file by the delimiter</li>
+<li>sort - bf - sorts</li>
+<li>uniq - unique values</li>
+<li>grep - search for some data<ul>
+<li>ubuntu@ip-172-31-82-245:~$ netstat &gt;&gt;netstat.txt</li>
+<li>cat netstat.txt | uniq|grep bus | cut -d[ -f2</li>
+</ul>
+</li>
+</ul>
+</div>
+</body>
+</html>
